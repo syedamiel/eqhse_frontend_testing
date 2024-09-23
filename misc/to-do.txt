@@ -1,0 +1,117 @@
+//This file is a simple to-do list for the eQHSE portal
+
+IMMEDIATE
+- Move UZMA division to pre-exisiting info ✅
+- Rename pre-exisiting info to general info ✅
+- Edit the process/method files (PHP) to accomadate above tasks ✅
+- Do CRUD operations on Corrective Action Report Page
+- Change total box to input so total is also saved in database
+- Create process/method files for:
+  -rca ✅
+  -correction
+  -corrective_action
+- Image inputs for chronology and rca - meeting with PL ✅
+- View page on homepage
+
+IMPORTANT TO FIND OUT
+- Create 2nd causal factor page - KIV on the system
+- Fix CAR No generation (include updated format from PL)
+- Find how to take in multiple inputs based on DOM monipulation 
+(chronology, rca, correction, corrective action)
+
+2 options for findings
+- multiple subtable since can have different findings for different days
+- can analyze later on
+- date is observation date and time
+
+CHANGES
+- chronology of findings -> chronology of events ✅
+- date, time, description ✅
+- use 1 findings only ✅
+- can use normal data entry or can use excel
+- can go back to old inputs (add new row) ✅
+- retrieve as a view level
+- retrieve based on date and time
+
+RCA
+- in 1 p.s, there can be many causal factors
+- from the many causal factors, there are many whys
+- ChatGPT api key frfr (text mining, 
+  text suggestion, model training)
+
+C and CA
+- based on the most probable root cause
+
+Cost Impact
+- remove NPT from cost impact ✅
+- add separate div for NPT ✅
+
+26/8 Minutes
+
+To-do: ⭐ - Do Next // ✅ - Done
+
+FEATURES/FUNCTIONALITIES
+- User registration ✅
+- Logout ✅
+- Reset password
+- Check recording arnd 37 min (for CRUD ops and relative CAR id and number to other form pages)
+- Correction and corrective action data save
+
+FRONTEND
+- Fix the process redirectory issue (clicking on proceed button leads to process file)
+- In client/well, fix the width for project and dropdown input
+- When viewing recent CAR, put the general info and client/well info on 1 page. Then, select what info they want to edit (retrieve from DB)
+- Time ranges for chronology
+- Add save button for all pages ⭐ (on top of the navigation buttons) (and so far added into new-car.php only, be sure to change the CSS as well)
+- Add a hidden field to save the car no on other pages (client-well, correction , etc.) ⭐
+
+BACKEND
+- Display the user info into CAR details page
+- Need to add “save” button first thus it will save  the CAR #  and other field as well  but navigate to this page again
+  - Then user can click the next form (proceed to client information page)
+  - But it needs to carry the CAR no and  login ID number
+- Correction and corrective action data save
+- CAR Auto Counter number ✅
+- Other reporters MUST HAVE permission to all CARs created (synchronized)
+
+DATABASE/TABLES
+- change car_details issue_date column to automatic submit ✅
+- registration.php will record the users into a table with the name users with columns named
+- client / well info table, carry over the car id and user id ⭐
+- there is a car id and car no ⭐
+
+TO SHARE WITH DR Na
+- Check if registration still needed?
+- Ask if I should change the dropdown for client-well-information from select option HTML attributes to generateDropdown function like UZMA Division using phpMyadmin
+
+CHANGES MADE:
+- added "<p><a href="logout.php">Logout</a></p>" into line 39 of dashboard.php
+- did not add "echo "Error: User not found.";
+  "exit(); into dashboard.php for if else statement
+- copied Dr Na's corrective-action-report.php into mine
+- added Dr Na's authentication if else part at the end into mine
+- changed my original car-no-generator.php into Dr Na's car-generator.php version
+- changed my original process-car-data.php into Dr Na's process-car-data.php version
+- changed my original new-car.php into Dr Na's new-car.php version
+- MAKE SURE TO CHECK BACK THE FILE LOCATIONS FOR PAGE FILES THAT USE SPECIFIC INCLUDES FILES (generateDropdown)
+
+client_well_details table in SQL
+CREATE TABLE client_well_details (
+  car_no VARCHAR(255) NOT NULL,
+  project_type VARCHAR(255) NOT NULL,
+  client VARCHAR(255) NOT NULL,
+  location VARCHAR(255) NOT NULL,
+  non_conformity VARCHAR(255) NOT NULL,
+  well_services VARCHAR(255) NOT NULL,
+  well_productions_service_solutions VARCHAR(255) NOT NULL,
+  FOREIGN KEY (car_no) REFERENCES car_general_details(car_no)
+);
+
+Meeting minutes / to-do (20/9/24)
+- For edit-car.php, fix and add and retrieve the already existing info and data into the file's input field
+- Users might press back to go to different pages. For example, when on client/well page, 
+  pressing back leads to new-car.php AND NOT edit-car.php, where it should be the other way around.
+- So make sure that when users have submitted on new-car.php page, the operation on clicking "back" on the client-well-info.php
+  has to lead back to edit-car.php?car_no=CAR-XXXXXXXX-XXXXXX
+- In corrective-action-report.php, change the Client name to UZMA Division
+- When the user is in editing mode, remove the proceed button to an update button with respective SQL query to update the table

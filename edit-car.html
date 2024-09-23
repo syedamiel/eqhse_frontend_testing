@@ -1,0 +1,250 @@
+<?php
+require 'includes/mysqli.php';
+require 'includes/car-no-generator.php';
+// require 'includes/car-generator.php';
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header('location:index.php');
+    exit();
+}
+
+$carno_id = isset($_GET['car_no']);
+$userId = $_SESSION['user'];
+$sql = "SELECT name, department FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $userId);
+$stmt->execute();
+$result = $stmt->get_result();
+// $carNo = $carNo = generateCarNo();
+// $carNo = generateRunningNo();
+
+
+if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
+    $userName = $row['name'];
+    $department = $row['department'];
+} else {
+    // Handle error if user not found
+    $userName = "Unknown";
+    $department = "Unknown";
+}
+$stmt->close();
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eQHSE Portal</title>
+    <link rel="stylesheet" href="css/new-car.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="img/uzma_logo-removebg-preview.png" alt="uzma logo">
+        <p>eQHSE Portal</p>
+        <div class="profile">
+            <p>Welcome <?php echo $userName; ?></p>
+        </div>
+    </header>
+    <!-- TOP NAVBAR -->
+    <div class="navbar">
+        <a href="dashboard.php" class="dashboard-text">Dashboard</a>
+        <div class="subnav">
+            <button class="subnavbtn"><a href="non-conformance-reporting.html">Non-Conformance Reporting</a></button>
+            <div class="subnav-content" id="subnav-content_NCR">
+                <a href="corrective-action-report.php">Corrective Action Report</a>
+                <a href="#team">Incident Reporting</a>
+                <a href="#careers">Audit Non-Compliance</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn"><a href="">Risk Assesment</a></button>
+            <div class="subnav-content" id="subnav-content_RA">
+                <a href="#bring">Risk & Opportunity</a>
+                <a href="#deliver">HIRADC</a>
+                <a href="#package">Environment Aspect and Impact</a>
+                <a href="#express">Permit to Work</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn"><a href="">Verify and Validate</a></button>
+            <div class="subnav-content" id="subnav-content_VV">
+                <a href="#link1">Pre-loadout Safety Checklist</a>
+                <a href="#link2">Equipment Pre-Acceptance Report</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn"><a href="">Management of Change</a></button>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn"><a href="">Inspection/Audit Reporting</a></button>
+            <div class="subnav-content" id="subnav-content_IAR">
+                <a href="#link1">Management Walkabout</a>
+                <a href="#link2">General Preservation Audit</a>
+                <a href="#link1">Workplace Inspection</a>
+            </div>
+        </div>
+        <div class="subnav">
+            <button class="subnavbtn"><a href="">Customer Satisfaction</a></button>
+            <div class="subnav-content" id="subnav-content_CS">
+                <a href="#link1">Customer Delivery Survey</a>
+                <a href="#link2">Project Delivery Self-Assesment</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="container">
+        <div class="title">
+            <h1>New Corrective Action Report</h1>
+        </div>
+        <div class="sidebar">
+            <div class="item">
+                <a href="#" class="active" id="gettingStarted">Getting Started</a>
+                <div class="sub-menu">
+                    <div class="sub-item"><a href="new-car.php" id="preExistingInformation"><i class="fa fa-caret-right"></i> General Information</a></div>
+                    <div class="sub-item"><a href="client-well-information.php"><i class="fa fa-caret-right"></i> Client / Well Information</a></div>
+                </div>
+            </div>
+            <div class="item">
+                <a href="#" class="active">Investigation</a>
+                <div class="sub-menu">
+                    <div class="sub-item"><a href="chronology-of-findings.php"><i class="fa fa-caret-right"></i> Chronology of Findings</a></div>
+                    <div class="sub-item"><a href="rca.php"><i class="fa fa-caret-right"></i> Root Cause Analysis</a></div>
+                </div>
+            </div>
+            <div class="item">
+                <a href="correction.php" class="active">Correction</a>
+            </div>
+            <div class="item">
+                <a href="correctiveactions.php" class="active">Corrective Actions</a>
+            </div>
+            <div class="item">
+                <a href="cost-impact.php" class="active">Cost Impact</a>
+            </div>
+        </div>
+        <div class="form-content">
+            <h2>General Information</h2>
+            <p class="info-text">*These information is filled out automatically based on data from the system. You can modify them by clicking the "Edit" button.</p>
+            <form id="pre-existing-form" action="includes/process-car-data.php" method="POST">
+                <div class="form-design">
+                    <div class="form-group">
+                        <label for="myInput1">UZMA Division</label>
+                        <select name="uzma-division" id="uzma-division">
+                            <option value="">-Select UZMA Division-</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="car-no">CAR No</label>
+                        <input type="text" id="car-no" name="car_no" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="issue-date">Issue Date</label>
+                        <input type="date" id="issue-date" name="issue_date" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="reporter">Reporter</label>
+                        <input type="text" id="reporter" name="reporter" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <!-- <input type="text" id="department" name="department"> -->
+                        <select name="department" id="uzma-department">
+                            <option value="">-Select UZMA Department-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <!-- <button type="button" id="edit-btn" value="Done">Done</button> -->
+                    <button type="submit" name="action" value="proceed" id="proceed-btn" onclick="window.location.href='client-well-information.php'">Proceed to Client / Well Information</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <script src="script/new-car.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $.ajax({
+                url: "includes/generatedropdown.php",
+                type: "GET",
+                dataType: "json",
+                data: {
+                    dropdownType: 'company'
+                },
+                success: function(response) {
+                    if (response.length > 0) {
+                        $.each(response, function(index, company) {
+                            $('#uzma-division').append(
+                                $('<option>', {
+                                    value: company.company_code,
+                                    text: company.company_name
+                                })
+                            );
+                        });
+                    } else {
+                        alert("No company found");
+                    }
+                }
+            });
+
+            $.ajax({
+                url: "includes/generatedropdown.php",
+                type: "GET",
+                dataType: "json",
+                data: {
+                    dropdownType: 'department'
+                },
+                success: function(response) {
+                    if (response.length > 0) {
+                        $.each(response, function(index, dept) {
+                            $('#uzma-department').append(
+                                $('<option>', {
+                                    value: dept.dept_code,
+                                    text: dept.dept_name
+                                })
+                            );
+                        });
+                    } else {
+                        alert("No department found");
+                    }
+                }
+            });
+
+            $('#uzma-division').change(function() {
+                var selectedValue = $(this).val(); // Get selected value
+
+                $.ajax({
+                    url: "includes/car-generator.php",
+                    type: "POST",
+                    data: {
+                        selectedValue: selectedValue
+                    },
+                    success: function(response) {
+                        // console.log(response)
+                        var data = response.split('|');
+
+                        // Assign the values to the respective fields
+                        $('#car-no').val(data[0]);
+                        $('#reporter').val(data[1]);
+                        $('#issue-date').val(data[2]);
+                    },
+                    error: function() {
+                        $('#result').html("An error occurred.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

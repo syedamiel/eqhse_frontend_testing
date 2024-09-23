@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQHSE Portal</title>
+  <link rel="stylesheet" href="css/rca.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+    <img src="img/uzma_logo-removebg-preview.png" alt="uzma logo">
+    <p>eQHSE Portal</p>
+    <!-- <div class="profile">
+      <p>Naib Johan</p>
+    </div> 
+    <img src="1144760.png" alt="pp_placeholder" class="profilePicture"> -->
+  </header>
+  <!-- TOP NAVBAR -->
+  <div class="navbar">
+    <a href="dashboard.php" class="dashboard-text">Dashboard</a>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="non-conformance-reporting.php">Non-Conformance Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_NCR">
+        <a href="corrective-action-report.php">Corrective Action Report</a>
+        <a href="#team">Incident Reporting</a>
+        <a href="#careers">Audit Non-Compliance</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Risk Assesment</a></button>
+      <div class="subnav-content" id="subnav-content_RA">
+        <a href="#bring">Risk & Opportunity</a>
+        <a href="#deliver">HIRADC</a>
+        <a href="#package">Environment Aspect and Impact</a>
+        <a href="#express">Permit to Work</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Verify and Validate</a></button>
+      <div class="subnav-content" id="subnav-content_VV">
+        <a href="#link1">Pre-loadout Safety Checklist</a>
+        <a href="#link2">Equipment Pre-Acceptance Report</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Management of Change</a></button>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Inspection/Audit Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_IAR">
+        <a href="#link1">Management Walkabout</a>
+        <a href="#link2">General Preservation Audit</a>
+        <a href="#link1">Workplace Inspection</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Customer Satisfaction</a></button>
+      <div class="subnav-content" id="subnav-content_CS">
+        <a href="#link1">Customer Delivery Survey</a>
+        <a href="#link2">Project Delivery Self-Assesment</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="container">
+    <div class="title">
+      <h1>New Corrective Action Report</h1>
+    </div>
+    <div class="sidebar">
+      <div class="item">
+        <a href="#" class="active" id="gettingStarted">Getting Started</a>
+        <div class="sub-menu">
+          <div class="sub-item"><a href="new-car.php" id=""><i class="fa fa-caret-right"></i> General Information</a></div>
+          <div class="sub-item"><a href="client-well-information.php"><i class="fa fa-caret-right"></i> Client / Well Information</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#" class="active" id="investigation">Investigation</a>
+        <div class="sub-menu">
+          <div class="sub-item"><a href="chronology-of-findings.php" id="chronology-of-findings"><i class="fa fa-caret-right"></i> Chronology of Findings</a></div>
+          <div class="sub-item"><a href="rca.php" id="rca"><i class="fa fa-caret-right"></i> Root Cause Analysis</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <a href="correction.php" class="active">Correction</a>
+      </div>
+      <div class="item">
+        <a href="correctiveactions.php" class="active">Corrective Actions</a>
+      </div>
+      <div class="item">
+        <a href="cost-impact.php" class="active">Cost Impact</a>
+      </div>
+    </div>
+    <div class="form-content">
+      <h2>Root Cause Analysis</h2>
+      <form id="pre-existing-form" action="includes/process-rca-data.php" method="POST">
+        <div class="form-design">
+          <div class="form-group" id="date">
+            <label for="problemStatement">Problem Statement</label>
+            <textarea class="findings-input" rows="5" name="problem_statement"></textarea>
+          </div>
+          <div class="form-group" id="findings">
+            <label for="causalFactor">Causal Factor #1</label>
+            <textarea class="findings-input" rows="5" name="causal_factor_1"></textarea>
+          </div>
+          <hr>
+          <div class="form-group" id="why">
+            <label for="why1">Why 1</label>
+            <textarea class="findings-input" rows="5" name="why_1" id="why1-input" value=""></textarea>
+          </div>
+          <div class="form-group-1" id="why1">
+            <label for="why2">Why 2</label>
+            <textarea class="findings-input" rows="5" name="why_2" id="why2-input" value=""></textarea>
+          </div>
+          <div class="form-group-1" id="why1">
+            <label for="why3">Why 3</label>
+            <textarea class="findings-input" rows="5" name="why_3" id="why3-input" value=""></textarea>
+          </div>
+          <div class="form-group-1" id="why1">
+            <label for="why4">Why 4</label>
+            <textarea class="findings-input" rows="5" name="why_4" id="why4-input" value=""></textarea>
+          </div>
+          <div class="form-group-1" id="why1">
+            <label for="why5">Why 5</label>
+            <textarea class="findings-input" rows="5" name="why_5" id="why5-input" value=""></textarea>
+          </div>
+          <div class="form-group-1" id="rca_image">
+            <label for="rca_image">Insert image</label>
+            <input type="file" name="rca_image" id="rca_image_input">
+          </div>
+          <!-- <div class="form-group-1" id="why1">
+            <label for="why1">Why 1</label>
+            <textarea class="findings-input" rows="5" name="why[]" id="why1-input" value=""></textarea>
+          </div> //original code to add new why div -->
+        </div>
+        <!-- <div class="add-button">
+          <button type="button" id="add-button"><b>+ Add New Why</b></button>
+        </div> -->
+        <hr>
+        <div class="form-group" id="mostProbable">
+          <label for="mostProbable">Most Probable Root Cause #1</label>
+          <textarea class="findings-input" rows="5" name="most_probable_root_cause_1"></textarea>
+        </div>
+        <div class="form-buttons">
+          <button type="button" id="back-btn" onclick="window.location.href='chronology-of-findings.html'">Back to Chronology of Findings</button>
+          <button type="submit" id="proceed-btn" onclick="window.location.href='correction.html'">Proceed to Correction</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <script src="script/rca.js"></script>
+</body>
+
+</html>

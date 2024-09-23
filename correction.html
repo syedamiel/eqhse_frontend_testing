@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQHSE Portal</title>
+  <link rel="stylesheet" href="css/correction.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+    <img src="img/uzma_logo-removebg-preview.png" alt="uzma logo">
+    <p>eQHSE Portal</p>
+    <!-- <div class="profile">
+      <p>Naib Johan</p>
+    </div> 
+    <img src="1144760.png" alt="pp_placeholder" class="profilePicture"> -->
+  </header>
+  <!-- TOP NAVBAR -->
+  <div class="navbar">
+    <a href="dashboard.php" class="dashboard-text">Dashboard</a>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="non-conformance-reporting.php">Non-Conformance Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_NCR">
+        <a href="new-car.php">Corrective Action Report</a>
+        <a href="#team">Incident Reporting</a>
+        <a href="#careers">Audit Non-Compliance</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Risk Assesment</a></button>
+      <div class="subnav-content" id="subnav-content_RA">
+        <a href="#bring">Risk & Opportunity</a>
+        <a href="#deliver">HIRADC</a>
+        <a href="#package">Environment Aspect and Impact</a>
+        <a href="#express">Permit to Work</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Verify and Validate</a></button>
+      <div class="subnav-content" id="subnav-content_VV">
+        <a href="#link1">Pre-loadout Safety Checklist</a>
+        <a href="#link2">Equipment Pre-Acceptance Report</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Management of Change</a></button>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Inspection/Audit Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_IAR">
+        <a href="#link1">Management Walkabout</a>
+        <a href="#link2">General Preservation Audit</a>
+        <a href="#link1">Workplace Inspection</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Customer Satisfaction</a></button>
+      <div class="subnav-content" id="subnav-content_CS">
+        <a href="#link1">Customer Delivery Survey</a>
+        <a href="#link2">Project Delivery Self-Assesment</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="container">
+    <div class="title">
+      <h1>New Corrective Action Report</h1>
+    </div>
+    <div class="sidebar">
+      <div class="item">
+        <a href="#" class="active" id="gettingStarted">Getting Started</a>
+        <div class="sub-menu">
+          <div class="sub-item"><a href="new-car.php" id=""><i class="fa fa-caret-right"></i> General Information</a></div>
+          <div class="sub-item"><a href="client-well-information.php"><i class="fa fa-caret-right"></i> Client / Well Information</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#" class="active" id="investigation">Investigation</a>
+        <div class="sub-menu">
+          <div class="sub-item"><a href="chronology-of-findings.php" id="chronology-of-findings"><i class="fa fa-caret-right"></i> Chronology of Findings</a></div>
+          <div class="sub-item"><a href="rca.php"><i class="fa fa-caret-right"></i> Root Cause Analysis</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <a href="correction.php" class="active" id="correctionSidebar">Correction</a>
+      </div>
+      <div class="item">
+        <a href="correctiveactions.php" class="active">Corrective Actions</a>
+      </div>
+      <div class="item">
+        <a href="cost-impact.php" class="active">Cost Impact</a>
+      </div>
+    </div>
+    <div class="form-content">
+      <h2>Corrections</h2>
+      <form id="pre-existing-form">
+        <div class="form-design">
+          <div class="form-group" id="correction-box"> <!-- **class was previously named form-group-1 to carry out adding new div-->
+            <label for="correction">Correction 1</label>
+            <textarea class="correction-input" rows="50" name="correction_1"></textarea><!-- <textarea class="correction-input" rows="5" name="why[]"></textarea> //previous code to add new div-->
+          </div>
+          <div class="form-group" id="pic">
+            <label for="pic">PIC</label>
+            <input type="text" class="pic-input" id="pic-input" name="correction_pic_1" value="">
+          </div>
+          <div class="form-group" id="date">
+            <label for="issue-date">Date</label>
+            <input type="date" id="issue-date" name="corrections_date_1" value="">
+          </div>
+        </div>
+        <div class="form-design">
+          <div class="form-group" id="correction-box">
+            <label for="correction">Correction 2</label>
+            <textarea class="correction-input" rows="50" name="correction_2"></textarea>
+          </div>
+          <div class="form-group" id="pic">
+            <label for="pic">PIC</label>
+            <input type="text" class="pic-input" id="pic-input" name="correction_pic_2" value="">
+          </div>
+          <div class="form-group" id="date">
+            <label for="issue-date">Date</label>
+            <input type="date" id="issue-date" name="correction_pic_2" value="">
+          </div>
+        </div>
+        <div class="form-design">
+          <div class="form-group" id="correction-box">
+            <label for="correction">Correction 3</label>
+            <textarea class="correction-input" rows="50" name="correction_3"></textarea>
+          </div>
+          <div class="form-group" id="pic">
+            <label for="pic">PIC</label>
+            <input type="text" class="pic-input" id="pic-input" name="correction_pic_3" value="">
+          </div>
+          <div class="form-group" id="date">
+            <label for="issue-date">Date</label>
+            <input type="date" id="issue-date" name="correction_pic_3" value="">
+          </div>
+        </div>
+        <div class="form-design">
+          <div class="form-group" id="correction-box">
+            <label for="correction">Correction 4</label>
+            <textarea class="correction-input" rows="50" name="correction_4"></textarea>
+          </div>
+          <div class="form-group" id="pic">
+            <label for="pic">PIC</label>
+            <input type="text" class="pic-input" id="pic-input" name="correction_pic_4" value="">
+          </div>
+          <div class="form-group" id="date">
+            <label for="issue-date">Date</label>
+            <input type="date" id="issue-date" name="correction_pic_4" value="">
+          </div>
+        </div>
+        <div class="form-design">
+          <div class="form-group" id="correction-box">
+            <label for="correction">Correction 5</label>
+            <textarea class="correction-input" rows="50" name="correction_5"></textarea>
+          </div>
+          <div class="form-group" id="pic">
+            <label for="pic">PIC</label>
+            <input type="text" class="pic-input" id="pic-input" name="correction_pic_5" value="">
+          </div>
+          <div class="form-group" id="date">
+            <label for="issue-date">Date</label>
+            <input type="date" id="issue-date" name="correction_pic_5" value="">
+          </div>
+        </div>
+        <!-- <div class="add-button">
+          <button type="button" id="add-button"><b>+ Add New Correction</b></button>
+        </div> //Button to add more corrections-->
+        <div class="form-buttons">
+          <button type="button" id="back-btn" onclick="window.location.href='rca.html'">Back to Root Cause Analysis</button>
+          <button type="submit" id="proceed-btn" onclick="window.location.href='correctiveactions.html'">Proceed to Corrective Actions</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <script src="script/correction.js"></script>
+</body>
+
+</html>

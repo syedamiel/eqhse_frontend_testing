@@ -1,0 +1,1 @@
+This misc folder is just a compilation of unused files or files meant for future modules.

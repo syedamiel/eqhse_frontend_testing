@@ -1,0 +1,238 @@
+body {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200px;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.profile {
+  margin-left: 850px;
+}
+
+.profilePicture {
+  width: 50px;
+  height: 50px;
+  margin-left: 25px;
+}
+/* The navigation menu */
+.navbar {
+  width: 100%;
+  overflow: hidden;
+  background-color: #06284c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navigation links */
+.navbar a {
+  /*float: left; */
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  position: relative;
+  padding: 20px 16px;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnavbtn {
+  position: relative;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover,
+.subnav:hover .subnavbtn {
+  background-color: red;
+}
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  background-color: #eee;
+  z-index: 1;
+  width: max-content;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
+  text-align: justify;
+}
+
+/* Font family*/
+a {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200px;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+.hse-statistics,
+.qhse-plans {
+  width: 49%;
+  height: 200px;
+  padding: 20px;
+  background-color: #d9d9d9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hse-statistics h2,
+.qhse-plans h2 {
+  margin-top: 0;
+}
+
+.kpi-tracker {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #d9d9d9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.kpi-tracker h2 {
+  margin-top: 0;
+}
+
+#subnav-content_NCR {
+  width: 268px;
+  position: absolute;
+}
+
+#subnav-content_RA {
+  position: absolute;
+  margin-left: 0;
+  width: 178px;
+}
+
+#subnav-content_VV {
+  margin-left: 0;
+  width: 195px;
+}
+
+#subnav-content_IAR {
+  position: absolute;
+  width: 250px;
+}
+
+#subnav-content_CS {
+  margin-right: 0%;
+  width: 220px;
+}
+
+.title {
+  margin-left: 35px;
+  margin-top: 25px;
+}
+
+.add-button button {
+  margin-left: 35px;
+  margin-top: 20px;
+  padding: 15px 20px;
+  width: 200px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.dashboard {
+  background-color: #e2e2e2;
+  width: 95%;
+  margin-left: 35px;
+  margin-top: 30px;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+h3 {
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 95%;
+  border: 1px solid #ddd;
+  margin-left: 35px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td {
+  background-color: #f3f3f3;
+}
+
+.edit {
+  border: none; /* Remove the default button border */
+  outline: none; /* Remove the focus outline */
+  background: transparent; /* Remove any background color */
+  cursor: pointer; /* Indicate that it's clickable */
+}

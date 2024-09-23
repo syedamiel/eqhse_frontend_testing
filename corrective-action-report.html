@@ -1,0 +1,129 @@
+<?php
+require 'includes/mysqli.php';
+session_start();
+
+if (!isset($_SESSION['user'])) {
+  header('location:index.php');
+}
+
+$userId = $_SESSION['user']; // Assuming user ID is stored in session
+$sql = "SELECT name FROM users WHERE id = $userId";
+$result = mysqli_query($conn, $sql);
+
+if ($result->num_rows == 1) {
+  $row = $result->fetch_assoc();
+  $userName = $row['name'];
+} else {
+  // Handle error if user not found (optional)
+}
+
+
+$sqlReport = "SELECT division, car_no, issue_date, reporter, reporter_id, department, status_id FROM car_general_details WHERE reporter_id = '$userId' ORDER BY id";
+// echo $sqlReport;
+$resReport = mysqli_query($conn, $sqlReport);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQHSE Corrective Action Report</title>
+  <link rel="stylesheet" href="css/corrective-action-report.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <img src="img/uzma_logo-removebg-preview.png" alt="uzma logo">
+    <p>eQHSE Portal</p>
+    <div class="profile">
+      <p>Welcome <?php echo $userName; ?></p>
+    </div>
+  </header>
+  <!-- TOP NAVBAR -->
+  <div class="navbar">
+    <a href="dashboard.php" class="dashboard-text">Dashboard</a>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="non-conformance-reporting.html">Non-Conformance Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_NCR">
+        <a href="corrective-action-report.html">Corrective Action Report</a>
+        <a href="#team">Incident Reporting</a>
+        <a href="#careers">Audit Non-Compliance</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Risk Assesment</a></button>
+      <div class="subnav-content" id="subnav-content_RA">
+        <a href="#bring">Risk & Opportunity</a>
+        <a href="#deliver">HIRADC</a>
+        <a href="#package">Environment Aspect and Impact</a>
+        <a href="#express">Permit to Work</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Verify and Validate</a></button>
+      <div class="subnav-content" id="subnav-content_VV">
+        <a href="#link1">Pre-loadout Safety Checklist</a>
+        <a href="#link2">Equipment Pre-Acceptance Report</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Management of Change</a></button>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Inspection/Audit Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_IAR">
+        <a href="#link1">Management Walkabout</a>
+        <a href="#link2">General Preservation Audit</a>
+        <a href="#link1">Workplace Inspection</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Customer Satisfaction</a></button>
+      <div class="subnav-content" id="subnav-content_CS">
+        <a href="#link1">Customer Delivery Survey</a>
+        <a href="#link2">Project Delivery Self-Assesment</a>
+      </div>
+    </div>
+  </div>
+  <div class="title">
+    <h2>Corrective Action Report Dashboard</h2>
+  </div>
+  <div class="add-button">
+    <button type="button" id="add-btn" onclick="window.location.href='new-car.html'">+ Add New Report</button>
+  </div>
+  <div class="dashboard">
+    <h3>Recent CARs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>CAR ID.</th>
+          <th>Issue Date</th>
+          <th>CAR Turnaround (days)</th>
+          <th>Client</th>
+          <th>Well Location</th>
+          <th>Issue Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CAR-DDMMYY-XX
+            <button class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+          </td>
+          <td>30/05/2024</td>
+          <td>5</td>
+          <td>PCSB</td>
+          <td>Well Location</td>
+          <td>Equipment</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

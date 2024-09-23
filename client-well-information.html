@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eQHSE Portal</title>
+  <link rel="stylesheet" href="css/client-well-information.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+    <img src="img/uzma_logo-removebg-preview.png" alt="uzma logo">
+    <p>eQHSE Portal</p>
+    <!-- <div class="profile">
+      <p>Naib Johan</p>
+    </div> 
+    <img src="1144760.png" alt="pp_placeholder" class="profilePicture"> -->
+  </header>
+  <!-- TOP NAVBAR -->
+  <div class="navbar">
+    <a href="dashboard.php" class="dashboard-text">Dashboard</a>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="non-conformance-reporting.html">Non-Conformance Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_NCR">
+        <a href="new-car.html">Corrective Action Report</a>
+        <a href="#team">Incident Reporting</a>
+        <a href="#careers">Audit Non-Compliance</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Risk Assesment</a></button>
+      <div class="subnav-content" id="subnav-content_RA">
+        <a href="#bring">Risk & Opportunity</a>
+        <a href="#deliver">HIRADC</a>
+        <a href="#package">Environment Aspect and Impact</a>
+        <a href="#express">Permit to Work</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Verify and Validate</a></button>
+      <div class="subnav-content" id="subnav-content_VV">
+        <a href="#link1">Pre-loadout Safety Checklist</a>
+        <a href="#link2">Equipment Pre-Acceptance Report</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Management of Change</a></button>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Inspection/Audit Reporting</a></button>
+      <div class="subnav-content" id="subnav-content_IAR">
+        <a href="#link1">Management Walkabout</a>
+        <a href="#link2">General Preservation Audit</a>
+        <a href="#link1">Workplace Inspection</a>
+      </div>
+    </div>
+    <div class="subnav">
+      <button class="subnavbtn"><a href="">Customer Satisfaction</a></button>
+      <div class="subnav-content" id="subnav-content_CS">
+        <a href="#link1">Customer Delivery Survey</a>
+        <a href="#link2">Project Delivery Self-Assesment</a>
+      </div>
+    </div>
+  </div>
+  <div class="flex-container"></div>
+  <!-- SIDEBAR -->
+  <div class="container">
+    <div class="title">
+      <h1>New Corrective Action Report</h1>
+    </div>
+    <div class="sidebar">
+      <div class="item">
+        <a href="#" class="active" id="gettingStarted">Getting Started</a>
+        <div class="sub-menu">
+          <div class="sub-item"><a href="new-car.html" id="preExistingInformation"><i class="fa fa-caret-right"></i> General Information</a></div>
+          <div class="sub-item"><a href="client-well-information.html" id="client-well-information"><i class="fa fa-caret-right"></i> Client / Well Information</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#" class="active">Investigation</a>
+
+        <div class="sub-menu">
+          <div class="sub-item"><a href="chronology-of-findings.php"><i class="fa fa-caret-right"></i> Chronology of Findings</a></div>
+          <div class="sub-item"><a href="rca.php"><i class="fa fa-caret-right"></i> Root Cause Analysis</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <a href="correction.php" class="active">Correction</a>
+      </div>
+      <div class="item">
+        <a href="correctiveactions.php" class="active">Corrective Actions</a>
+      </div>
+      <div class="item">
+        <a href="cost-impact.php" class="active">Cost Impact</a>
+      </div>
+    </div>
+    <!-- FORM -->
+    <div class="form-content">
+      <h2>Client / Well Information</h2>
+      <form id="pre-existing-form" action="includes/process-client-well-data.php" method="POST">
+        <div class="form-design">
+          <div class="hidden-form-group">
+            <input type="hidden" name="car_no" id="car_no" value="">
+          </div>
+          <div class="form-group">
+            <label for="car-no">Project</label>
+            <input type="text" id="projectType" name="projectType" value="">
+          </div>
+          <div class="form-group">
+            <label for="myInput2">Client</label>
+            <select name="client" id="client">
+              <option value="select">Select Client--</option>
+              <option value="PETRONAS CARIGALI SDN BHD (PCSB)">PETRONAS CARIGALI SDN BHD (PCSB)</option>
+              <option value="PETROFAC">PETROFAC</option>
+              <option value="EMEPMI">EMEPMI</option>
+              <option value="PERTAMINA">PERTAMINA</option>
+              <option value="REPSOL">REPSOL</option>
+              <option value="HIBISCUS">HIBISCUS</option>
+              <option value="MUBADALA / VALUERA">MUBADALA / VALUERA</option>
+              <option value="MEDCO">MEDCO</option>
+              <option value="PTTEP">PTTEP</option>
+              <option value="VESTIGO">VESTIGO</option>
+              <option value="SHELL">SHELL</option>
+              <option value="RTIC">RTIC</option>
+              <option value="JADESTONE">JADESTONE</option>
+              <option value="NOI">NOI</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="myInput3">Location</label>
+            <select name="location" id="location">
+              <option value="select">Select Location--</option>
+              <option value="PENISULAR MALAYSIA (PMO)">PENISULAR MALAYSIA (PMO)</option>
+              <option value="SABAH (SBO)">SABAH (SBO)</option>
+              <option value="SARAWAK (SKO)">SARAWAK (SKO)</option>
+              <option value="THAILAND">THAILAND</option>
+              <option value="MYANMAR">MYANMAR</option>
+              <option value="PHILIPPINES">PHILIPPINES</option>
+              <option value="INDONESIA">INDONESIA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="myInput4">Non-Conformities</label>
+            <select name="non-conformity" id="non-conformity">
+              <option value="select">Select Non-Conformity--</option>
+              <option value="EQUIPMENT">EQUIPMENT</option>
+              <option value="NON-FULFILMENT">NON-FULFILMENT</option>
+              <option value="PERSONNEL">PERSONNEL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="myInput5">Well Services</label>
+            <select name="well-services" id="well-services">
+              <option value="select">Select Well Services--</option>
+              <option value="Hydraulic Workover Service">Hydraulic Workover Service</option>
+              <option value="Plug and Abandonment">Plug and Abandonment</option>
+              <option value="Coiled Tubing">Coiled Tubing</option>
+              <option value="Wireline">Wireline</option>
+              <option value="Perforation">Perforation</option>
+              <option value="Workover Services">Workover Services</option>
+              <option value="Well Pumping">Well Pumping</option>
+              <option value="Cementing">Cementing</option>
+              <option value="Desander">Desander</option>
+              <option value="Directional Drilling">Directional Drilling</option>
+              <option value="Well-Stimulation">Well Stimulation</option>
+              <option value="Well Chemicals">Well Chemicals</option>
+              <option value="Drilling and Well Services Consultancy">Drilling and Well Services Consultancy</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="myInput6">Well Productions Service Solutions</label>
+            <select name="well-productions" id="well-productions">
+              <option value="select">Select Well Productions Service Solutions--</option>
+              <option value="Water Injection Facilities (WIF)">Water Injection Facilities (WIF)</option>
+              <option value="Advanced Production Enhancement System (UzmAPRESTM)">Advanced Production Enhancement System (UzmAPRESTM)</option>
+              <option value="Portable Water Injection Module (WIM)">Portable Water Injection Module (WIM)</option>
+              <option value="Gas Handling System">Gas Handling System</option>
+              <option value="Early Production Facilities">Early Production Facilities</option>
+              <option value="Filtration Services">Filtration Services</option>
+              <option value="Artificial Lift">Artificial Lift</option>
+              <option value="Production Chemicals">Production Chemicals</option>
+              <option value="Pump Manufacturing">Pump Manufacturing</option>
+              <option value="Supply and Installation of non-metallic pipeline">Supply and Installation of non-metallic pipeline</option>
+              <option value="Supply of Equipment and Consumables">Supply of Equipment and Consumables</option>
+              <option value="Geoscience Studies & Laboratory Services">Geoscience Studies & Laboratory Services</option>
+              <option value="Well Testing Equipment and Rental Services">Well Testing Equipment and Rental Services</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-buttons">
+          <button type="submit" name="save" value="save" id="save-btn">Save</button>
+          <button type="button" id="back-btn" onclick="window.location.href='new-car.html'">Back to Pre-existing Information</button>
+          <button type="submit" id="proceed-btn" onclick="window.location.href='chronology-of-findings.html'">Proceed to Chronology of Findings</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  </div>
+  <script src="script/client-well-information.js"></script>
+</body>
+
+</html>
